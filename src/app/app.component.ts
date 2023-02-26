@@ -1,10 +1,64 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Calculo';
+
+export class AppComponent implements OnInit {
+
+  public forecasts?: WeatherForecast[];
+  public calc!: Investimento;
+  public form!: FormGroup;
+
+  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+
+     this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
+        this.forecasts = result;
+      }, error => console.error(error));
+
+  }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      valor: [''],
+      mes: ['']
+    });
+  }
+
+  get f() { return this.form.controls; }
+  
+
+  processar() {
+
+     console.log('Mes:', this.f.mes.value);
+     console.log('Valor:', this.f.valor.value);
+
+    this.http.get<Investimento>('/consulta-cdb', {
+      params: {
+        mes: this.f.mes.value,
+        valor: this.f.valor.value
+      }
+    }
+    ).subscribe(result => {
+       this.calc = result;
+      }, error => console.error(error));
+  }
+}
+
+interface WeatherForecast {
+  date: string;
+  temperatureC: number;
+  temperatureF: number;
+  summary: string;
+}
+
+interface Investimento {
+  valor: number;
+  mes: number;
+  valorBruto: number;
+  valorLiquido: number;
 }
