@@ -15,11 +15,11 @@
       <form [formGroup]="form" (ngSubmit)="processar()">
         <div class="mb-3">
           <label class="form-label">Valor</label>
-          <input type="text" formControlName="valor" class="form-control"  />
+          <input type="text" pattern="[0-9]*" formControlName="valor" class="form-control" step="0.01" min="0" />
         </div>
         <div class="mb-3">
           <label class="form-label">Mês</label>
-          <input type="text" formControlName="mes" class="form-control" />
+          <input type="number" pattern="[0-9]*" formControlName="mes" class="form-control" min="1" />
         </div>
         <div>
           <button class="btn btn-success">
