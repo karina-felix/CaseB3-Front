@@ -10,15 +10,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 export class AppComponent implements OnInit {
 
-  public forecasts?: WeatherForecast[];
   public calc!: Investimento;
   public form!: FormGroup;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {
-
-     this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
-        this.forecasts = result;
-      }, error => console.error(error));
 
   }
 
@@ -49,12 +44,6 @@ export class AppComponent implements OnInit {
   }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
 
 interface Investimento {
   valor: number;

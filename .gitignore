@@ -43,3 +43,15 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+bin/
+obj/
+Debug/
+Release/
+*node_modules/*

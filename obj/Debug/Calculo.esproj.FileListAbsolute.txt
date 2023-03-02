@@ -1,2 +1,4 @@
 C:\Users\Karina\Desktop\Cases-Trabalho\B3\CaseB3\CaseB3\Calculo\obj\Debug\Calculo.esproj.SuggestedBindingRedirects.cache
 C:\Users\Karina\Desktop\Cases-Trabalho\B3\CaseB3\CaseB3\Calculo\obj\Debug\Calculo.esproj.CoreCompileInputs.cache
+C:\Git\caseB3\CaseB3\CaseB3\Calculo\obj\Debug\Calculo.esproj.SuggestedBindingRedirects.cache
+C:\Git\caseB3\CaseB3\CaseB3\Calculo\obj\Debug\Calculo.esproj.CoreCompileInputs.cache
